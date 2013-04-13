@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@android:color/black"
+        >
+    <LinearLayout android:layout_height="wrap_content"
+                  android:layout_width="fill_parent"
+                  android:orientation="horizontal"
+                  >
+
+
+        <EditText android:layout_width="0dp"
+                  android:drawableLeft="@drawable/matte_search"
+                  android:drawableRight="@drawable/matte_delete"
+                  android:layout_weight="1"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/search"
+                  android:inputType="textFilter"
+                  android:hint="Поиск по песням и исполнителям"
+                  android:maxLines="1"
+                  android:imeOptions="flagNoExtractUi"
+                  android:singleLine="true"
+                  android:background="#000000"
+                  android:textColor="#17AAFA"
+                  android:textColorHint="#17AAFA"
+                  />
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="fill_parent"
+                   android:scaleType="fitCenter"
+                   android:src="@drawable/matte_top_rated"
+                   android:padding="3dp"
+                   android:layout_marginLeft="20dp"
+                   android:id="@+id/favorites"
+                   />
+
+    </LinearLayout>
+
+    <ListView android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:id="@+id/list"
+              android:divider="#17AAFA"
+              android:dividerHeight="2dp"
+              android:smoothScrollbar="true"
+
+              android:cacheColorHint="@android:color/transparent"/>
+</LinearLayout>
+
