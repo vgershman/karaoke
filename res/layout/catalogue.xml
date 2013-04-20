@@ -3,14 +3,19 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:background="@android:color/black"
-        >
+              android:background="@android:color/black">
     <LinearLayout android:layout_height="wrap_content"
                   android:layout_width="fill_parent"
                   android:orientation="horizontal"
-                  >
-
-
+            >
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="fill_parent"
+                   android:scaleType="fitCenter"
+                   android:src="@drawable/matte_lyrics"
+                   android:padding="3dp"
+                   android:layout_marginLeft="20dp"
+                   android:id="@+id/open_menu"
+                />
         <EditText android:layout_width="0dp"
                   android:drawableLeft="@drawable/matte_search"
                   android:drawableRight="@drawable/matte_delete"
@@ -25,16 +30,70 @@
                   android:background="#000000"
                   android:textColor="#17AAFA"
                   android:textColorHint="#17AAFA"
-                  />
-        <ImageView android:layout_width="wrap_content"
-                   android:layout_height="fill_parent"
-                   android:scaleType="fitCenter"
-                   android:src="@drawable/matte_top_rated"
-                   android:padding="3dp"
-                   android:layout_marginLeft="20dp"
-                   android:id="@+id/favorites"
-                   />
+                />
+    </LinearLayout>
 
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#17AAFA">
+
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="0.3"
+                  android:layout_height="wrap_content"
+                  android:background="#17AAFA"
+                  android:textSize="20sp"
+                  android:textColor="@android:color/black"
+                  android:textStyle="bold"
+                  android:paddingLeft="5dp"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_marginBottom="5dp"
+                  android:text="Исполнитель"
+                  android:gravity="center"
+                  android:id="@+id/headerAuthor"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="0.3"
+                  android:layout_height="wrap_content"
+                  android:text="Название"
+                  android:textStyle="bold"
+                  android:paddingLeft="5dp"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:textSize="20sp"
+                  android:gravity="center"
+                  android:layout_marginTop="5dp"
+                  android:textColor="#17AAFA"
+                  android:background="#000000"
+                  android:id="@+id/headerName"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="0.15"
+                  android:textSize="20sp"
+                  android:paddingLeft="5dp"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:layout_height="wrap_content"
+                  android:text="Midi"
+                  android:layout_marginTop="5dp"
+                  android:gravity="center"
+                  android:textStyle="bold"
+                  android:textColor="#17AAFA"
+                  android:background="#000000"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="0.15"
+                  android:paddingLeft="5dp"
+                  android:paddingTop="5dp"
+                  android:paddingBottom="5dp"
+                  android:layout_height="wrap_content"
+                  android:textSize="20sp"
+                  android:textStyle="bold"
+                  android:gravity="center"
+                  android:textColor="#17AAFA"
+                  android:background="#000000"
+                  android:layout_marginTop="5dp"
+                  android:text="Mp3"/>
     </LinearLayout>
 
     <ListView android:layout_width="fill_parent"
@@ -43,7 +102,6 @@
               android:divider="#17AAFA"
               android:dividerHeight="2dp"
               android:smoothScrollbar="true"
-
               android:cacheColorHint="@android:color/transparent"/>
 </LinearLayout>
 

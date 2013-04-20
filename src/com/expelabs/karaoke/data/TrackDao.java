@@ -19,13 +19,15 @@ import java.util.List;
 public class TrackDao {
 
     public static final String TABLENAME = "tracks";
+    public static final String FAVOURITE_TABLE = "favorite";
+    public static  List<String> favoriteFields = new ArrayList<String>();
     public static List<String> fields = new ArrayList<String>();
     private static DatabaseUtils.InsertHelper ih;
     static int authorColumn;
     static int nameColumn;
     static int midiColumn;
     static int mp3Column;
-    static int favColumn;
+    static int locColumn;
     private static final int PAGE_SIZE = 50;
     private static AsyncSearch current;
 
@@ -34,7 +36,10 @@ public class TrackDao {
         fields.add("name text");
         fields.add("midi text");
         fields.add("mp3 text");
-        fields.add("fav integer");
+        fields.add("loc text");
+        favoriteFields.add("mp3 text");
+        favoriteFields.add("midi text");
+        favoriteFields.add("fav int");
     }
 
     private static SQLiteDatabase db;
@@ -45,7 +50,7 @@ public class TrackDao {
         ih.bind(nameColumn, trackEntry.getName());
         ih.bind(midiColumn, trackEntry.getMidi());
         ih.bind(mp3Column, trackEntry.getMp3());
-        ih.bind(favColumn, 0);
+        ih.bind(locColumn, trackEntry.getLocale());
         ih.execute();
     }
 
@@ -56,7 +61,7 @@ public class TrackDao {
         nameColumn = ih.getColumnIndex("name");
         midiColumn = ih.getColumnIndex("midi");
         mp3Column = ih.getColumnIndex("mp3");
-        favColumn = ih.getColumnIndex("fav");
+        locColumn = ih.getColumnIndex("loc");
         db.execSQL("PRAGMA synchronous=OFF");
         db.setLockingEnabled(false);
         db.beginTransaction();
@@ -71,28 +76,25 @@ public class TrackDao {
         db.close();
     }
 
-    public static void updateFavourite(TrackEntry trackEntry) {
+    public static void setFavourite(TrackEntry trackEntry, boolean favourite){
         db = DataBaseHelper.getInstance().getWritableDatabase();
-        db.delete(TABLENAME, "id = " + trackEntry.getId(), null);
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("id", trackEntry.getId());
-        contentValues.put("author", trackEntry.getAuthor());
-        contentValues.put("name", trackEntry.getName());
-        contentValues.put("midi", trackEntry.getMidi());
-        contentValues.put("mp3", trackEntry.getMp3());
-        contentValues.put("fav", trackEntry.isFavourite() ? 1 : 0);
-        db.insert(TABLENAME, null, contentValues);
-        db.close();
+        if(favourite){
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("mp3",trackEntry.getMp3());
+            contentValues.put("midi",trackEntry.getMidi());
+            contentValues.put("fav", 1);
+            db.insert(FAVOURITE_TABLE,null,contentValues);
+        }else{
+            db.delete(FAVOURITE_TABLE,"mp3 = ? and midi = ?", new String[]{trackEntry.getMp3(),trackEntry.getMidi()});
+        }
     }
 
     public static List<TrackEntry> getTrackEntries(Integer pageCount, String query, String sort) {
         db = DataBaseHelper.getInstance().getWritableDatabase();
         List<TrackEntry> trackEntries = new ArrayList<TrackEntry>();
-        Cursor cursor = db.rawQuery("select * from " + TABLENAME + " " + query + sort + " limit " + pageCount * PAGE_SIZE + " offset "+ (pageCount-1)*PAGE_SIZE +";", null);
+        Cursor cursor = db.rawQuery("select * from " + TABLENAME + " " + query + sort + " limit " + pageCount * PAGE_SIZE + " offset " + (pageCount - 1) * PAGE_SIZE + ";", null);
         while (cursor.moveToNext()) {
             TrackEntry trackEntry = new TrackEntry();
-            trackEntry.setFavourite(cursor.getInt(cursor.getColumnIndex("fav")) == 1);
-            trackEntry.setId(cursor.getInt(cursor.getColumnIndex("id")));
             trackEntry.setAuthor(cursor.getString(cursor.getColumnIndex("author")));
             trackEntry.setName(cursor.getString(cursor.getColumnIndex("name")));
             trackEntry.setMidi(cursor.getString(cursor.getColumnIndex("midi")));
@@ -108,8 +110,43 @@ public class TrackDao {
         db.close();
     }
 
+    public static boolean isFavourite(TrackEntry trackEntry){
+        db = DataBaseHelper.getInstance().getWritableDatabase();
+        Cursor cursor = db.query(FAVOURITE_TABLE, new String[]{"fav"},"mp3 = ? and midi = ?",new String[]{trackEntry.getMp3(),trackEntry.getMidi()},null,null,null);
+        if(cursor.moveToFirst()){
+            db.close();
+            return cursor.getInt(cursor.getColumnIndex("fav")) == 1;
+        }else{
+            db.close();
+            return false;
+        }
+    }
+
+    public static List<TrackEntry> getFavouriteTracks(){
+        db = DataBaseHelper.getInstance().getWritableDatabase();
+        List<TrackEntry>preResult = new ArrayList<TrackEntry>();
+        Cursor cursor = db.query(FAVOURITE_TABLE, new String[]{"mp3","midi"},"fav = 1",null,null,null,null);
+        while(cursor.moveToNext()){
+            TrackEntry trackEntry = new TrackEntry();
+            trackEntry.setMidi(cursor.getString(cursor.getColumnIndex("midi")));
+            trackEntry.setMp3(cursor.getString(cursor.getColumnIndex("mp3")));
+            preResult.add(trackEntry);
+        }
+        cursor.close();
+
+        for(TrackEntry trackEntry:preResult){
+            cursor = db.query(TABLENAME, new String[]{"author","name"}, "mp3 = ? and midi = ?", new String[]{trackEntry.getMp3(),trackEntry.getMidi()},null,null,null);
+            if(cursor.moveToFirst()){
+                trackEntry.setAuthor(cursor.getString(cursor.getColumnIndex("author")));
+                trackEntry.setName(cursor.getString(cursor.getColumnIndex("name")));
+            }
+            cursor.close();
+        }
+        return preResult;
+    }
+
     public static void asyncSearch(Integer pageCount, String query, String sort, SearchCallback callback) {
-        if(current!=null){
+        if (current != null) {
             current.cancel(true);
         }
         current = new AsyncSearch(pageCount, query, sort, callback);

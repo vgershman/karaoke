@@ -9,12 +9,15 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.*;
 import com.expelabs.karaoke.R;
 import com.expelabs.karaoke.adapter.CatalogueAdapter;
 import com.expelabs.karaoke.data.SearchCallback;
 import com.expelabs.karaoke.data.TrackDao;
 import com.expelabs.karaoke.data.TrackEntry;
+import com.slidingmenu.lib.SlidingMenu;
+import com.slidingmenu.lib.app.SlidingActivity;
 
 import java.util.List;
 
@@ -32,14 +35,50 @@ public class CatalogActivity extends Activity {
     private CatalogueAdapter adapter;
     private int currentPage =1;
     private boolean searching;
+    private SlidingMenu menu;
+    private String curLoc = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.catalogue);
+        menu = new SlidingMenu(this);
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+
+        int width = getWindow().getWindowManager().getDefaultDisplay().getWidth();
+        menu.setBehindOffset(width - 200);
+
+        menu.setFadeDegree(0.35f);
+        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+        menu.setMenu(R.layout.slidingmenu);
+        menu.findViewById(R.id.natives).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                curLoc = "ru";
+                doSearch(true,query);
+            }
+        });
+
+        menu.findViewById(R.id.eng).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                curLoc = "en";
+                doSearch(true,query);
+            }
+        });
+
+        menu.findViewById(R.id.all).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                curLoc = "";
+                doSearch(true,query);
+            }
+        });
+
+
         adapter = new CatalogueAdapter(this);
-        LinearLayout listHeader = (LinearLayout)getLayoutInflater().inflate(R.layout.catalog_header, null, false);
-        artistHeader = (TextView) listHeader.findViewById(R.id.headerAuthor);
+        artistHeader = (TextView) findViewById(R.id.headerAuthor);
         artistHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +95,7 @@ public class CatalogActivity extends Activity {
                 sortChanged();
             }
         });
-        nameHeader = (TextView)listHeader.findViewById(R.id.headerName);
+        nameHeader = (TextView)findViewById(R.id.headerName);
         nameHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,36 +114,26 @@ public class CatalogActivity extends Activity {
         });
 
         list = (ListView)findViewById(R.id.list);
-        list.addHeaderView(listHeader);
-        final ImageView favs = (ImageView)findViewById(R.id.favorites);
-        favs.setOnClickListener(new View.OnClickListener() {
+        final ImageView openMenu = (ImageView)findViewById(R.id.open_menu);
+        openMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!fav) {
-                    //adapter = new CatalogueAdapter(CatalogActivity.this, TrackDao.getTrackEntries(10,"where fav = 1 ", current_sort));
-                    adapter.notifyDataSetChanged();
-                    list.setAdapter(adapter);
-                    favs.setImageResource(R.drawable.matte_lyrics);
-                } else {
-                    doSearch(false, query);
-                    favs.setImageResource(R.drawable.matte_top_rated);
-                }
-                fav = !fav;
+                 menu.toggle();
             }
         });
        list.setAdapter(adapter);
+
        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
            @Override
            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                final TrackEntry trackEntry = adapter.getItem((int)l);
-
+               final boolean isFavourite = TrackDao.isFavourite(trackEntry);
                AlertDialog.Builder builder = new AlertDialog.Builder(CatalogActivity.this);
-               builder.setMessage(trackEntry.isFavourite()?"Удалить из избранных" :"Добавить в избранные?");
-               builder.setPositiveButton(trackEntry.isFavourite()?"Удалить":"Добавить", new DialogInterface.OnClickListener() {
+               builder.setMessage(isFavourite ? "Удалить из избранных" :"Добавить в избранные?");
+               builder.setPositiveButton(isFavourite ? "Удалить":"Добавить", new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialogInterface, int i2) {
-                       trackEntry.setFavourite(!trackEntry.isFavourite());
-                       TrackDao.updateFavourite(trackEntry);
+                       TrackDao.setFavourite(trackEntry,!isFavourite);
                        dialogInterface.dismiss();
                        doSearch(true,query);
                    }
@@ -169,7 +198,7 @@ public class CatalogActivity extends Activity {
 
     private void doSearch(final boolean clear, CharSequence query) {
          searching = true;
-         TrackDao.asyncSearch(currentPage,"where (author like '" + query + "%' or name like '" +query+"%')",current_sort,new SearchCallback() {
+         TrackDao.asyncSearch(currentPage,"where (author like '%" + query + "%' or name like '%" +query+"%' and loc like '%"+curLoc+"%') collate nocase ",current_sort,new SearchCallback() {
              @Override
              public void onFound(List<TrackEntry> result) {
                  adapter.addTracks(clear,result);

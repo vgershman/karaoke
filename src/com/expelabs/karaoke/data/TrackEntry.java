@@ -9,19 +9,18 @@ package com.expelabs.karaoke.data;
  */
 public class TrackEntry {
 
-    private Integer id;
-    private String author="";
-    private String name="";
-    private String midi="";
-    private String mp3="";
-    private boolean favourite;
+    private String author = "";
+    private String name = "";
+    private String midi = "";
+    private String mp3 = "";
+    private String locale = "";
 
-    public boolean isFavourite() {
-        return favourite;
+    public String getLocale() {
+        return locale;
     }
 
-    public void setFavourite(boolean favourite) {
-        this.favourite = favourite;
+    public void setLocale(String locale) {
+        this.locale = locale;
     }
 
     public String getAuthor() {
@@ -54,13 +53,5 @@ public class TrackEntry {
 
     public void setMp3(String mp3) {
         this.mp3 = mp3;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 }

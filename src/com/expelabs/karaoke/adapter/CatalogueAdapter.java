@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.expelabs.karaoke.R;
 import com.expelabs.karaoke.data.TrackDao;
 import com.expelabs.karaoke.data.TrackEntry;
+import com.slidingmenu.lib.SlidingMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +77,7 @@ public class CatalogueAdapter extends BaseAdapter {
         holder.itemName.setText(trackEntries.get(i).getName());
         holder.itemMidi.setText(trackEntries.get(i).getMidi());
         holder.itemMp3.setText(trackEntries.get(i).getMp3());
+
         return row;
     }
 

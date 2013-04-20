@@ -39,17 +39,24 @@ public class ImportTask extends AsyncTask {
             ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(context.getAssets().open("karaoke.zip")));
             TrackDao.clear();
             TrackDao.open();
-            while (zipInputStream.getNextEntry() != null) {
+            ZipEntry zipEntry;
+            while ((zipEntry = zipInputStream.getNextEntry())!= null) {
                 CSVReader reader = new CSVReader(new BufferedReader(new InputStreamReader(zipInputStream)));
                 String[] nextLine;
+                int i = 0;
                 while ((nextLine = reader.readNext()) != null) {
                     TrackEntry trackEntry = new TrackEntry();
                     trackEntry.setAuthor(nextLine[0]);
                     trackEntry.setName(nextLine[1]);
-                    trackEntry.setMidi(nextLine[2]);
-                    trackEntry.setMp3(nextLine[3]);
+                    trackEntry.setMidi(nextLine[2].replace("?","d"));
+                    trackEntry.setMp3(nextLine[3].replace("?","d"));
+                    trackEntry.setLocale(zipEntry.getName().replace(".csv",""));
                     TrackDao.insert(trackEntry);
+                    i++;
+                    Log.i("karaoke", i+"" );
+
                 }
+
             }
             TrackDao.close();
             zipInputStream.close();

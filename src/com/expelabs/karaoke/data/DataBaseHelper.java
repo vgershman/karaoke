@@ -34,6 +34,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
        createTable(TrackDao.TABLENAME, TrackDao.fields, sqLiteDatabase);
+       createTable(TrackDao.FAVOURITE_TABLE, TrackDao.favoriteFields,sqLiteDatabase);
     }
 
     @Override

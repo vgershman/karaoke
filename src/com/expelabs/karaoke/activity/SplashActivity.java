@@ -26,16 +26,6 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
-
-    }
-
-    private void importData(Callback callback) {
-        new ImportTask(this,callback).execute();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         if(checkLoaded()){
             new Timer().schedule(new TimerTask() {
                 @Override
@@ -64,6 +54,11 @@ public class SplashActivity extends Activity {
             });
         }
     }
+
+    private void importData(Callback callback) {
+        new ImportTask(this,callback).execute();
+    }
+
 
     private boolean checkLoaded(){
         return getSharedPreferences(PREFERENCES_NAME,MODE_PRIVATE).getBoolean("loaded",false);
