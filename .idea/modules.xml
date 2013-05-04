@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/karaoke.iml" filepath="$PROJECT_DIR$/karaoke.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SlidingMenu/library/library.iml" filepath="$PROJECT_DIR$/SlidingMenu/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SlidingMenu/library/library.iml" filepath="$PROJECT_DIR$/../SlidingMenu/library/library.iml" />
     </modules>
   </component>
 </project>
