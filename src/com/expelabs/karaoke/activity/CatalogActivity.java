@@ -75,10 +75,10 @@ public class CatalogActivity extends Activity {
         artistHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view.setBackgroundColor(Color.parseColor("#17AAFA"));
-                ((TextView) view).setTextColor(Color.BLACK);
-                nameHeader.setBackgroundColor(Color.BLACK);
-                nameHeader.setTextColor(Color.parseColor("#17AAFA"));
+                //view.setBackgroundColor(Color.parseColor("#17AAFA"));
+                //((TextView) view).setTextColor(Color.BLACK);
+                //nameHeader.setBackgroundColor(Color.BLACK);
+                ///nameHeader.setTextColor(Color.parseColor("#17AAFA"));
                 if (sortAuthor) {
                     sortAsc = !sortAsc;
                 } else {
@@ -92,10 +92,10 @@ public class CatalogActivity extends Activity {
         nameHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                view.setBackgroundColor(Color.parseColor("#17AAFA"));
-                ((TextView) view).setTextColor(Color.BLACK);
-                artistHeader.setBackgroundColor(Color.BLACK);
-                artistHeader.setTextColor(Color.parseColor("#17AAFA"));
+                //view.setBackgroundColor(Color.parseColor("#17AAFA"));
+                //((TextView) view).setTextColor(Color.BLACK);
+                //artistHeader.setBackgroundColor(Color.BLACK);
+                //artistHeader.setTextColor(Color.parseColor("#17AAFA"));
                 if (!sortAuthor) {
                     sortAsc = !sortAsc;
                 } else {
@@ -106,13 +106,13 @@ public class CatalogActivity extends Activity {
             }
         });
         list = (ListView) findViewById(R.id.list);
-        final ImageView openMenu = (ImageView) findViewById(R.id.open_menu);
-        openMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                menu.toggle();
-            }
-        });
+        //final ImageView openMenu = (ImageView) findViewById(R.id.open_menu);
+        //openMenu.setOnClickListener(new View.OnClickListener() {
+         //   @Override
+         //   public void onClick(View view) {
+         //       menu.toggle();
+         //   }
+        //});
         list.setAdapter(adapter);
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
