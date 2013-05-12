@@ -5,31 +5,40 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:background="@drawable/bg_main"
-              android:padding="25dp"
-        >
+              android:padding="25dp">
 
-    <LinearLayout android:layout_height="wrap_content"
-                  android:layout_width="fill_parent"
-                  android:orientation="horizontal">
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal">
 
         <com.expelabs.karaoke.view.CustomFontEditText
-                  android:layout_width="0dp"
-                  android:layout_weight="1"
-                  android:layout_height="wrap_content"
-                  custom:customFont="MinionPro-Regular.otf"
-                  android:id="@+id/search"
-                  android:inputType="textFilter"
-                  android:hint="Поиск по песням и исполнителям"
-                  android:maxLines="1"
-                  android:imeOptions="flagNoExtractUi"
-                  android:singleLine="true"
-                  android:background="@drawable/search_field"
-                  android:textColor="#42403e"
-                  android:textColorHint="#42403e"
-                  android:padding="15sp"
-                  android:textSize="25sp"
-
-                />
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                custom:customFont="MinionPro-Regular.otf"
+                android:id="@+id/search"
+                android:inputType="textFilter"
+                android:hint="Поиск по песням и исполнителям"
+                android:maxLines="1"
+                android:imeOptions="flagNoExtractUi"
+                android:singleLine="true"
+                android:background="@drawable/search_field"
+                android:textColor="#42403e"
+                android:textColorHint="#42403e"
+                android:paddingLeft="15sp"
+                android:paddingBottom="15sp"
+                android:paddingTop="15sp"
+                android:textSize="25sp"/>
+         <com.expelabs.karaoke.view.CustomFontTextView
+                    android:layout_height="fill_parent"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/delete_query"
+                    android:background="@drawable/search_field"
+                    android:text="X"
+                    android:textSize="30sp"
+                    custom:customFont="MinionPro-Reqular.otf"
+                 />
     </LinearLayout>
 
     <LinearLayout
@@ -38,57 +47,63 @@
             android:layout_height="wrap_content"
             android:background="#0000">
 
-        <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
-                                                      android:layout_width="0dp"
-                                                      android:layout_weight="0.3"
-                                                      android:gravity="center"
-                                                      android:textColor="#eaeaea"
-                                                      android:textSize="25sp"
-                                                      android:padding="5dp"
-                                                      android:text="Исполнитель"
-                                                      custom:customFont="MinionPro-Regular.otf"
-                                                      android:id="@+id/headerAuthor"/>
-        <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
-                                                      android:layout_width="0dp"
-                                                      android:layout_weight="0.3"
-                                                      android:gravity="center"
-                                                      android:textColor="#eaeaea"
-                                                      android:textSize="25sp"
-                                                      android:padding="5dp"
-                                                      android:text="Название"
-                                                      custom:customFont="MinionPro-Regular.otf"
-                                                      android:id="@+id/headerName"/>
-        <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
-                                                      android:layout_width="0dp"
-                                                      android:layout_weight="0.15"
-                                                      android:gravity="center"
-                                                      android:textColor="#eaeaea"
-                                                      android:textSize="25sp"
-                                                      android:padding="5dp"
-                                                      android:text="Midi"
-                                                      custom:customFont="MinionPro-Regular.otf"
-                />
-        <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
-                                                      android:layout_width="0dp"
-                                                      android:layout_weight="0.15"
-                                                      android:gravity="center"
-                                                      android:padding="5dp"
-                                                      android:textColor="#eaeaea"
-                                                      android:textSize="25sp"
-                                                      android:text="Mp3"
-                                                      custom:customFont="MinionPro-Regular.otf"
-                />
+        <com.expelabs.karaoke.view.CustomFontTextView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:textColor="#eaeaea"
+                android:textSize="25sp"
+                android:padding="5dp"
+                android:text="Исполнитель"
+                custom:customFont="MinionPro-Regular.otf"
+                android:id="@+id/headerAuthor"/>
+
+        <com.expelabs.karaoke.view.CustomFontTextView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:textColor="#eaeaea"
+                android:textSize="25sp"
+                android:padding="5dp"
+                android:text="Название"
+                custom:customFont="MinionPro-Regular.otf"
+                android:id="@+id/headerName"/>
+
+        <com.expelabs.karaoke.view.CustomFontTextView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.15"
+                android:gravity="center"
+                android:textColor="#eaeaea"
+                android:textSize="25sp"
+                android:padding="5dp"
+                android:text="Midi"
+                custom:customFont="MinionPro-Regular.otf"/>
+
+        <com.expelabs.karaoke.view.CustomFontTextView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.15"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#eaeaea"
+                android:textSize="25sp"
+                android:text="Mp3"
+                custom:customFont="MinionPro-Regular.otf"/>
 
     </LinearLayout>
 
-    <ListView android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:id="@+id/list"
-              android:divider="@null"
-              android:smoothScrollbar="true"
-              android:padding="5dp"
-              android:background="@drawable/white_bg"
+    <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/list"
+            android:divider="@null"
+            android:smoothScrollbar="true"
+            android:padding="5dp"
+            android:background="@drawable/white_bg"
 
-              android:cacheColorHint="@android:color/transparent"/>
+            android:cacheColorHint="@android:color/transparent"/>
 </LinearLayout>
 

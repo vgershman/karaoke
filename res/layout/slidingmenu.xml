@@ -47,6 +47,7 @@
                android:layout_height="wrap_content"
                android:src="@drawable/microphone"
                android:adjustViewBounds="true"
-               android:scaleType="fitCenter"/>
+               android:scaleType="fitCenter"
+               android:padding="40dp"/>
 
 </LinearLayout>
