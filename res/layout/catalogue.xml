@@ -7,14 +7,13 @@
               android:background="@drawable/bg_main"
               android:padding="25dp">
 
-    <LinearLayout
+    <FrameLayout
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
-            android:orientation="horizontal">
+            >
 
         <com.expelabs.karaoke.view.CustomFontEditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 custom:customFont="MinionPro-Regular.otf"
                 android:id="@+id/search"
@@ -34,12 +33,15 @@
                     android:layout_height="fill_parent"
                     android:layout_width="wrap_content"
                     android:id="@+id/delete_query"
-                    android:background="@drawable/search_field"
+                    android:layout_gravity="right"
+                    android:gravity="center_vertical"
+                    android:layout_marginRight="15dp"
                     android:text="X"
+                    android:textColor="#42403e"
                     android:textSize="30sp"
                     custom:customFont="MinionPro-Reqular.otf"
                  />
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
             android:orientation="horizontal"
@@ -52,7 +54,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
                 android:gravity="center"
-                android:textColor="#eaeaea"
+                android:textColor="#f9e8b7"
                 android:textSize="25sp"
                 android:padding="5dp"
                 android:text="Исполнитель"

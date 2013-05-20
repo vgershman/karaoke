@@ -23,7 +23,7 @@ public class CatalogActivity extends Activity {
 
     private ListView list;
     private EditText search;
-    private boolean sortAuthor;
+    private boolean sortAuthor = true;
     private boolean sortAsc;
     private String current_sort = "";
     private String query = "";
@@ -35,11 +35,9 @@ public class CatalogActivity extends Activity {
     private boolean searching;
     private SlidingMenu menu;
     private String curLoc = "";
+    private boolean showFavs;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.catalogue);
+    public void initMenu() {
         menu = new SlidingMenu(this);
         menu.setMode(SlidingMenu.LEFT);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
@@ -49,36 +47,99 @@ public class CatalogActivity extends Activity {
         menu.setFadeEnabled(false);
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         menu.setMenu(R.layout.slidingmenu);
-        menu.findViewById(R.id.natives).setOnClickListener(new View.OnClickListener() {
+    }
+
+    public void initControls() {
+        final TextView natives = (TextView) menu.findViewById(R.id.natives);
+        final TextView eng = (TextView) menu.findViewById(R.id.eng);
+        final TextView all = (TextView) menu.findViewById(R.id.all);
+        final TextView favs = (TextView) menu.findViewById(R.id.favs);
+        final TextView deleteQuery = (TextView) findViewById(R.id.delete_query);
+        artistHeader = (TextView) findViewById(R.id.headerAuthor);
+        nameHeader = (TextView) findViewById(R.id.headerName);
+        list = (ListView) findViewById(R.id.list);
+        search = (EditText) findViewById(R.id.search);
+        natives.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(showFavs){
+                    showFavs=false;
+                }
                 curLoc = "ru";
+                natives.setTextColor(Color.parseColor("#f9e8b7"));
+                eng.setTextColor(Color.parseColor("#eaeaea"));
+                all.setTextColor(Color.parseColor("#eaeaea"));
+                favs.setTextColor(Color.parseColor("#eaeaea"));
                 doSearch(true, query);
             }
         });
-        menu.findViewById(R.id.eng).setOnClickListener(new View.OnClickListener() {
+        eng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(showFavs){
+                    showFavs=false;
+                }
                 curLoc = "en";
+                eng.setTextColor(Color.parseColor("#f9e8b7"));
+                natives.setTextColor(Color.parseColor("#eaeaea"));
+                all.setTextColor(Color.parseColor("#eaeaea"));
+                favs.setTextColor(Color.parseColor("#eaeaea"));
                 doSearch(true, query);
             }
         });
-        menu.findViewById(R.id.all).setOnClickListener(new View.OnClickListener() {
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(showFavs){
+                    showFavs=false;
+                }
+                curLoc = "";
+                all.setTextColor(Color.parseColor("#f9e8b7"));
+                natives.setTextColor(Color.parseColor("#eaeaea"));
+                eng.setTextColor(Color.parseColor("#eaeaea"));
+                favs.setTextColor(Color.parseColor("#eaeaea"));
+                doSearch(true, query);
+            }
+        });
+        favs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 curLoc = "";
-                doSearch(true, query);
+                favs.setTextColor(Color.parseColor("#f9e8b7"));
+                natives.setTextColor(Color.parseColor("#eaeaea"));
+                eng.setTextColor(Color.parseColor("#eaeaea"));
+                all.setTextColor(Color.parseColor("#eaeaea"));
+                adapter.addTracks(true, TrackDao.getFavouriteTracks());
+                showFavs = true;
             }
         });
+        deleteQuery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search.setText("");
+                query = "";
+            }
+        });
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.catalogue);
+        initMenu();
+        initControls();
+        setListeners();
         adapter = new CatalogueAdapter(this);
-        artistHeader = (TextView) findViewById(R.id.headerAuthor);
+        list.setAdapter(adapter);
+    }
+
+    private void setListeners() {
         artistHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //view.setBackgroundColor(Color.parseColor("#17AAFA"));
-                //((TextView) view).setTextColor(Color.BLACK);
-                //nameHeader.setBackgroundColor(Color.BLACK);
-                ///nameHeader.setTextColor(Color.parseColor("#17AAFA"));
+                if(showFavs){return;}
+                artistHeader.setTextColor(Color.parseColor("#f9e8b7"));
+                nameHeader.setTextColor(Color.parseColor("#eaeaea"));
                 if (sortAuthor) {
                     sortAsc = !sortAsc;
                 } else {
@@ -88,14 +149,12 @@ public class CatalogActivity extends Activity {
                 sortChanged();
             }
         });
-        nameHeader = (TextView) findViewById(R.id.headerName);
         nameHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //view.setBackgroundColor(Color.parseColor("#17AAFA"));
-                //((TextView) view).setTextColor(Color.BLACK);
-                //artistHeader.setBackgroundColor(Color.BLACK);
-                //artistHeader.setTextColor(Color.parseColor("#17AAFA"));
+                if(showFavs){return;}
+                nameHeader.setTextColor(Color.parseColor("#f9e8b7"));
+                artistHeader.setTextColor(Color.parseColor("#eaeaea"));
                 if (!sortAuthor) {
                     sortAsc = !sortAsc;
                 } else {
@@ -105,15 +164,6 @@ public class CatalogActivity extends Activity {
                 sortChanged();
             }
         });
-        list = (ListView) findViewById(R.id.list);
-        //final ImageView openMenu = (ImageView) findViewById(R.id.open_menu);
-        //openMenu.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-         //   public void onClick(View view) {
-         //       menu.toggle();
-         //   }
-        //});
-        list.setAdapter(adapter);
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -153,7 +203,6 @@ public class CatalogActivity extends Activity {
                 }
             }
         });
-        search = (EditText) findViewById(R.id.search);
         search.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -184,6 +233,7 @@ public class CatalogActivity extends Activity {
     }
 
     private void doSearch(final boolean clear, CharSequence query) {
+        if(showFavs){return;}
         searching = true;
         TrackDao.asyncSearch(currentPage, "where (author like '%" + query + "%' or name like '%" + query + "%' and loc like '%" + curLoc + "%') collate nocase ", current_sort, new SearchCallback() {
             @Override

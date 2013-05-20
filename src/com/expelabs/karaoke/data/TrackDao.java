@@ -27,7 +27,8 @@ public class TrackDao {
     static int midiColumn;
     static int mp3Column;
     static int locColumn;
-    private static final int PAGE_SIZE = 50;
+    static int favColumn;
+    private static final int PAGE_SIZE = 100;
     private static AsyncSearch current;
 
     static {
@@ -88,6 +89,7 @@ public class TrackDao {
         }
     }
 
+
     public static List<TrackEntry> getTrackEntries(Integer pageCount, String query, String sort) {
         db = DataBaseHelper.getInstance().getWritableDatabase();
         List<TrackEntry> trackEntries = new ArrayList<TrackEntry>();
@@ -134,12 +136,14 @@ public class TrackDao {
         cursor.close();
 
         for(TrackEntry trackEntry:preResult){
-            cursor = db.query(TABLENAME, new String[]{"author","name"}, "mp3 = ? and midi = ?", new String[]{trackEntry.getMp3(),trackEntry.getMidi()},null,null,null);
-            if(cursor.moveToFirst()){
-                trackEntry.setAuthor(cursor.getString(cursor.getColumnIndex("author")));
-                trackEntry.setName(cursor.getString(cursor.getColumnIndex("name")));
+            db = DataBaseHelper.getInstance().getReadableDatabase();
+            Cursor cursor1 = db.query(TABLENAME, new String[]{"author","name"}, "mp3 = ? and midi = ?", new String[]{trackEntry.getMp3(),trackEntry.getMidi()},null,null,null);
+            if(cursor1.moveToFirst()){
+                trackEntry.setAuthor(cursor1.getString(cursor1.getColumnIndex("author")));
+                trackEntry.setName(cursor1.getString(cursor1.getColumnIndex("name")));
             }
-            cursor.close();
+            cursor1.close();
+            db.close();
         }
         return preResult;
     }
