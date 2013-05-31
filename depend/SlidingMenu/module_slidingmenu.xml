@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_slidingmenu" default="compile.module.slidingmenu">
+  <dirname property="module.slidingmenu.basedir" file="${ant.file.module_slidingmenu}"/>
+  
+  <property name="module.jdk.home.slidingmenu" value="${jdk.home.android_4.1.2_platform_(2)}"/>
+  <property name="module.jdk.bin.slidingmenu" value="${jdk.bin.android_4.1.2_platform_(2)}"/>
+  <property name="module.jdk.classpath.slidingmenu" value="jdk.classpath.android_4.1.2_platform_(2)"/>
+  
+  <property name="compiler.args.slidingmenu" value="${compiler.args}"/>
+  
+  <property name="slidingmenu.output.dir" value="${module.slidingmenu.basedir}/../../out/production/SlidingMenu"/>
+  <property name="slidingmenu.testoutput.dir" value="${module.slidingmenu.basedir}/../../out/test/SlidingMenu"/>
+  
+  <path id="slidingmenu.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="slidingmenu.module.production.classpath">
+    <path refid="${module.jdk.classpath.slidingmenu}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  <path id="slidingmenu.runtime.production.module.classpath">
+    <pathelement location="${slidingmenu.output.dir}"/>
+  </path>
+  
+  <path id="slidingmenu.module.classpath">
+    <path refid="${module.jdk.classpath.slidingmenu}"/>
+    <pathelement location="${slidingmenu.output.dir}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  <path id="slidingmenu.runtime.module.classpath">
+    <pathelement location="${slidingmenu.testoutput.dir}"/>
+    <pathelement location="${slidingmenu.output.dir}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.slidingmenu">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.slidingmenu">
+    <patternset refid="compiler.excluded"/>
+    <patternset refid="excluded.from.module.slidingmenu"/>
+  </patternset>
+  
+  <path id="slidingmenu.module.sourcepath">
+    <dirset dir="${module.slidingmenu.basedir}">
+      <include name="src"/>
+      <include name="gen"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.slidingmenu" depends="compile.module.slidingmenu.production,compile.module.slidingmenu.tests" description="Compile module SlidingMenu"/>
+  
+  <target name="compile.module.slidingmenu.production" depends="register.custom.compilers" description="Compile module SlidingMenu; production classes">
+    <mkdir dir="${slidingmenu.output.dir}"/>
+    <javac2 destdir="${slidingmenu.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.slidingmenu}/javac">
+      <compilerarg line="${compiler.args.slidingmenu}"/>
+      <bootclasspath refid="slidingmenu.module.bootclasspath"/>
+      <classpath refid="slidingmenu.module.production.classpath"/>
+      <src refid="slidingmenu.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.slidingmenu"/>
+    </javac2>
+    
+    <copy todir="${slidingmenu.output.dir}">
+      <fileset dir="${module.slidingmenu.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+        <patternset refid="excluded.from.compilation.slidingmenu"/>
+      </fileset>
+      <fileset dir="${module.slidingmenu.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+        <patternset refid="excluded.from.compilation.slidingmenu"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.slidingmenu.tests" depends="register.custom.compilers,compile.module.slidingmenu.production" description="compile module SlidingMenu; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.slidingmenu" description="cleanup module">
+    <delete dir="${slidingmenu.output.dir}"/>
+    <delete dir="${slidingmenu.testoutput.dir}"/>
+  </target>
+</project>

@@ -28,10 +28,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b3b805-6b99-486d-9727-5d149ca4c569" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/expelabs/karaoke/activity/CatalogActivity.java" afterPath="$PROJECT_DIR$/src/com/expelabs/karaoke/activity/CatalogActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/expelabs/karaoke/data/TrackDao.java" afterPath="$PROJECT_DIR$/src/com/expelabs/karaoke/data/TrackDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/catalogue.xml" afterPath="$PROJECT_DIR$/res/layout/catalogue.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/slidingmenu.xml" afterPath="$PROJECT_DIR$/res/layout/slidingmenu.xml" />
+      <change type="DELETED" beforePath="C:\projects\karaoke\assets\karaoke.zip" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/expelabs/karaoke/ImportTask.java" afterPath="$PROJECT_DIR$/src/com/expelabs/karaoke/ImportTask.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/karaoke.iml" afterPath="$PROJECT_DIR$/karaoke.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="karaoke.iws" />
@@ -40,14 +41,14 @@
     <file path="/AndroidManifest.xml" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1367674834576" ignored="false" />
     <file path="/SplashActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1365591810334" ignored="false" />
     <file path="/Callback.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1365248002773" ignored="false" />
-    <file path="/ImportTask.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1366142998254" ignored="false" />
+    <file path="/ImportTask.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370010497757" ignored="false" />
     <file path="/TrackEntry.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1365969097289" ignored="false" />
     <file path="/DataBaseHelper.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1365941265120" ignored="false" />
     <file path="/DBHelper.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1365275866591" ignored="false" />
     <file path="/TrackDao.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1369077449159" ignored="false" />
     <file path="/Sort.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1365273758765" ignored="false" />
     <file path="/fragment.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1365972813816" ignored="false" />
-    <file path="/Dummy.txt" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1369071918979" ignored="false" />
+    <file path="/Dummy.txt" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370005994729" ignored="false" />
     <file path="/splash.xml" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1365581308223" ignored="false" />
     <file path="/catalogue.xml" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1369072983192" ignored="false" />
     <file path="/CatalogActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1369078651294" ignored="false" />
@@ -69,6 +70,26 @@
     <file path="$APPLICATION_HOME_DIR$/plugins/android/lib/android.jar!/org/jetbrains/android/android.xsd" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1368198246166" ignored="false" />
     <file path="/CustomFontEditText.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1368207970551" ignored="false" />
     <file path="/a.xml" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1368386556338" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/BillingActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006164169" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/InstActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006371873" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/view/LikeButton.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006390102" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/CategoryListActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006392645" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/WelcomeActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006395107" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/RepostActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006459478" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/adapter/VerticalCategoryAdapter.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006401351" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/SearchActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006463667" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/AuthActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006467194" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/SearchResultListActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006470207" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/PhotosYouLikedListActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006474322" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/CategoryActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006397669" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/CommentsActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006480882" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/util/PictureUtil.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006419040" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/ProfileActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006422438" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/activity/MyFeedListActivity.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006411535" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/src/com/instarepost/app/InstarepostApp.java" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370006602649" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/proguard-config.txt" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370007159093" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/proguard_logs/mapping.txt" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370007484327" ignored="false" />
+    <file path="$PROJECT_DIR$/../instarepost/AndroidManifest.xml" changelist="a0b3b805-6b99-486d-9727-5d149ca4c569" time="1370007350971" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,51 +156,6 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/expelabs/karaoke/ImportTask.java" line="38" class="com.expelabs.karaoke.ImportTask" package="com.expelabs.karaoke">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/expelabs/karaoke/ImportTask.java" line="60" class="com.expelabs.karaoke.ImportTask" package="com.expelabs.karaoke">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/expelabs/karaoke/activity/SplashActivity.java" line="42" class="com.expelabs.karaoke.activity.SplashActivity$2" package="com.expelabs.karaoke.activity">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
     </line_breakpoints>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
@@ -191,71 +167,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="slidingmenu.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/slidingmenu.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="CustomFontEditText.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/view/CustomFontEditText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="69" selection-start="1509" selection-end="1516" vertical-scroll-proportion="-11.666667">
+            <state line="37" column="77" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="catalogue.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/catalogue.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="43" selection-start="2470" selection-end="2470" vertical-scroll-proportion="-12.037037">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CatalogActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CatalogActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/activity/CatalogActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="85" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.0601227">
+            <state line="21" column="13" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0">
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#initMenu#0;class#CatalogActivity#0" expanded="false" />
-                <element signature="e#2323#2853#0" expanded="true" />
-                <element signature="e#2842#2843#0" expanded="true" />
-                <element signature="e#2887#3417#0" expanded="true" />
-                <element signature="e#3406#3407#0" expanded="true" />
-                <element signature="e#3451#3979#0" expanded="true" />
-                <element signature="e#3968#3969#0" expanded="true" />
-                <element signature="e#4014#4524#0" expanded="true" />
-                <element signature="e#4513#4514#0" expanded="true" />
-                <element signature="e#4566#4746#0" expanded="true" />
-                <element signature="e#4735#4736#0" expanded="true" />
                 <element signature="method#onCreate#0;class#CatalogActivity#0" expanded="false" />
                 <element signature="method#setListeners#0;class#CatalogActivity#0" expanded="false" />
-                <element signature="e#5141#5663#0" expanded="true" />
-                <element signature="e#5652#5653#0" expanded="true" />
-                <element signature="e#5704#6228#0" expanded="true" />
-                <element signature="e#6217#6218#0" expanded="true" />
-                <element signature="e#6271#7606#0" expanded="true" />
-                <element signature="e#6859#7222#0" expanded="true" />
-                <element signature="e#7203#7204#0" expanded="true" />
-                <element signature="e#7277#7518#0" expanded="true" />
-                <element signature="e#7499#7500#0" expanded="true" />
-                <element signature="e#7595#7596#0" expanded="true" />
-                <element signature="e#8201#8637#0" expanded="true" />
-                <element signature="e#8626#8627#0" expanded="true" />
-                <element signature="e#9690#9902#0" expanded="true" />
-                <element signature="e#9891#9892#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsyncSearch.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/data/AsyncSearch.java">
+      <file leaf-file-name="SplashActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/activity/SplashActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="759" selection-end="759" vertical-scroll-proportion="0.0">
+            <state line="58" column="16" selection-start="1960" selection-end="1960" vertical-scroll-proportion="1.1119186">
               <folding />
             </state>
           </provider>
@@ -282,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/com/expelabs/karaoke/data/TrackEntry.java" />
         <option value="$PROJECT_DIR$/src/com/expelabs/karaoke/activity/SplashActivity.java" />
         <option value="$PROJECT_DIR$/assets/karaoke/en.csv" />
-        <option value="$PROJECT_DIR$/src/com/expelabs/karaoke/ImportTask.java" />
         <option value="$PROJECT_DIR$/src/com/expelabs/karaoke/adapter/CatalogueAdapter.java" />
         <option value="$PROJECT_DIR$/res/values/attrs.xml" />
         <option value="$PROJECT_DIR$/res/values/themes.xml" />
@@ -295,14 +232,15 @@
         <option value="$PROJECT_DIR$/res/layout/catalogue.xml" />
         <option value="$PROJECT_DIR$/src/com/expelabs/karaoke/data/TrackDao.java" />
         <option value="$PROJECT_DIR$/src/com/expelabs/karaoke/activity/CatalogActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/expelabs/karaoke/ImportTask.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="22" />
-    <option name="width" value="1900" />
-    <option name="height" value="976" />
+    <option name="x" value="54" />
+    <option name="y" value="-8" />
+    <option name="width" value="1874" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -331,6 +269,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -411,59 +350,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="karaoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="karaoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="karaoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="karaoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="karaoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="karaoke" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -475,18 +363,18 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.sourceCode.XML" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SlidingMenu/library" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/depend/SlidingMenu/SlidingMenu.iml" />
     <property name="AndroidLayoutSelectedEditor" value="text-editor" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="DEBUGGABLE_DEVICE" value="192.168.1.202:5555" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="DEBUGGABLE_DEVICE" value="4df718fd1599cfc5" />
     <property name="DEBUGGABLE_PROCESS" value="com.expelabs.karaoke" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="AndroidTargetDevices" value="304D19A781277C8E" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -524,33 +412,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -689,31 +550,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="22" width="1900" height="976" extended-state="0" />
-    <editor active="false" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943794" sideWeight="0.6264929" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38901868" sideWeight="0.49337748" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3887114" sideWeight="0.49337748" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.70074546" sideWeight="0.2519337" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.01635514" sideWeight="0.49779248" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36677453" sideWeight="0.98364484" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51037854" sideWeight="0.49779248" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36646965" sideWeight="0.98364484" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.49779248" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1995685" sideWeight="0.7242991" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27570093" sideWeight="0.49337018" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20198676" sideWeight="0.76038337" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23961662" sideWeight="0.49337018" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924226" sideWeight="0.7208766" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924226" sideWeight="0.7208766" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32590857" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -784,30 +645,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="47" selection-start="80" selection-end="98" vertical-scroll-proportion="-1.2" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/view/CustomFontEditText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="77" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../SlidingMenu/library/src/com/slidingmenu/lib/CustomViewAbove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="784" column="0" selection-start="22771" selection-end="22771" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/app/KaraokeApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="13" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0">
@@ -834,48 +671,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/adapter/CatalogueAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="16" selection-start="983" selection-end="983" vertical-scroll-proportion="0.33277026">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/ImportTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="32" selection-start="1911" selection-end="1911" vertical-scroll-proportion="0.23986487">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="52" selection-start="2435" selection-end="2435" vertical-scroll-proportion="1.0725664">
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/slidingmenu.xml">
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="69" selection-start="1509" selection-end="1516" vertical-scroll-proportion="-11.666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/catalogue.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="43" selection-start="2470" selection-end="2470" vertical-scroll-proportion="-12.037037">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/data/AsyncSearch.java">
@@ -892,38 +695,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/adapter/CatalogueAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="26" selection-start="477" selection-end="477" vertical-scroll-proportion="-0.75788146">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/catalogue.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="43" selection-start="2470" selection-end="2470" vertical-scroll-proportion="0.022135416">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/slidingmenu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="69" selection-start="1509" selection-end="1516" vertical-scroll-proportion="0.203125">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Android/android-sdk/sources/android-17/java/io/BufferedReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="11" selection-start="2906" selection-end="2906" vertical-scroll-proportion="0.33296824">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/ImportTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="118" selection-start="1138" selection-end="1138" vertical-scroll-proportion="0.59302324">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/view/CustomFontEditText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="77" selection-start="1098" selection-end="1098" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/activity/CatalogActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="85" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.0601227">
+        <state line="21" column="13" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0">
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#initMenu#0;class#CatalogActivity#0" expanded="false" />
-            <element signature="e#2323#2853#0" expanded="true" />
-            <element signature="e#2842#2843#0" expanded="true" />
-            <element signature="e#2887#3417#0" expanded="true" />
-            <element signature="e#3406#3407#0" expanded="true" />
-            <element signature="e#3451#3979#0" expanded="true" />
-            <element signature="e#3968#3969#0" expanded="true" />
-            <element signature="e#4014#4524#0" expanded="true" />
-            <element signature="e#4513#4514#0" expanded="true" />
-            <element signature="e#4566#4746#0" expanded="true" />
-            <element signature="e#4735#4736#0" expanded="true" />
             <element signature="method#onCreate#0;class#CatalogActivity#0" expanded="false" />
             <element signature="method#setListeners#0;class#CatalogActivity#0" expanded="false" />
-            <element signature="e#5141#5663#0" expanded="true" />
-            <element signature="e#5652#5653#0" expanded="true" />
-            <element signature="e#5704#6228#0" expanded="true" />
-            <element signature="e#6217#6218#0" expanded="true" />
-            <element signature="e#6271#7606#0" expanded="true" />
-            <element signature="e#6859#7222#0" expanded="true" />
-            <element signature="e#7203#7204#0" expanded="true" />
-            <element signature="e#7277#7518#0" expanded="true" />
-            <element signature="e#7499#7500#0" expanded="true" />
-            <element signature="e#7595#7596#0" expanded="true" />
-            <element signature="e#8201#8637#0" expanded="true" />
-            <element signature="e#8626#8627#0" expanded="true" />
-            <element signature="e#9690#9902#0" expanded="true" />
-            <element signature="e#9891#9892#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/expelabs/karaoke/activity/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="16" selection-start="1960" selection-end="1960" vertical-scroll-proportion="1.1119186">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -979,7 +821,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>karaoke</last-edited>
+          <last-edited>Android|SlidingMenu</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1002,7 +844,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>android-support-v4</last-edited>
+          <last-edited>android-support-v4 (2)</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
