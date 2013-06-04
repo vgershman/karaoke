@@ -43,11 +43,4 @@
                                                   android:text="Избранные"
                                                   custom:customFont="MinionPro-Regular.otf"
                                                   android:id="@+id/favs"/>
-    <ImageView android:layout_width="fill_parent"
-               android:layout_height="wrap_content"
-               android:src="@drawable/microphone"
-               android:adjustViewBounds="true"
-               android:scaleType="fitCenter"
-               android:padding="40dp"/>
-
 </LinearLayout>

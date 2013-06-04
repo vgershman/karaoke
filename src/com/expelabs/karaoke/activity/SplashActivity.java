@@ -31,16 +31,16 @@ public class SplashActivity extends Activity {
                 @Override
                 public void run() {
                     startActivity(new Intent(SplashActivity.this, CatalogActivity.class));
-                    finish();
+                   // finish();
                 }
-            },1000);
+            },5000);
 
         }else{
-            findViewById(R.id.loading).setVisibility(View.VISIBLE);
+            //findViewById(R.id.loading).setVisibility(View.VISIBLE);
             importData(new Callback() {
                 @Override
                 public void onSuccess() {
-                    findViewById(R.id.loading).setVisibility(View.GONE);
+                    //findViewById(R.id.loading).setVisibility(View.GONE);
                     getSharedPreferences(PREFERENCES_NAME, MODE_PRIVATE).edit().putBoolean("loaded", true).commit();
                     startActivity(new Intent(SplashActivity.this, CatalogActivity.class));
                     finish();
@@ -48,7 +48,7 @@ public class SplashActivity extends Activity {
 
                 @Override
                 public void onFailure() {
-                    findViewById(R.id.loading).setVisibility(View.GONE);
+                    //findViewById(R.id.loading).setVisibility(View.GONE);
                     Toast.makeText(SplashActivity.this, "Sorry, can't import data", Toast.LENGTH_LONG).show();
                 }
             });

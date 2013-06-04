@@ -13,7 +13,7 @@ import android.content.Context;
 public class KaraokeApp extends Application {
 
     private static Context context;
-
+    public static final String PREFERENCES_NAME = "karaoke";
     public static Context getContext(){
         return context;
     }

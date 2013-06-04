@@ -26,8 +26,8 @@
                 android:textColor="#42403e"
                 android:textColorHint="#42403e"
                 android:paddingLeft="15sp"
-                android:paddingBottom="15sp"
-                android:paddingTop="15sp"
+                android:paddingBottom="10sp"
+                android:paddingTop="10sp"
                 android:textSize="25sp"/>
          <com.expelabs.karaoke.view.CustomFontTextView
                     android:layout_height="fill_parent"

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.*;
 import com.expelabs.karaoke.R;
 import com.expelabs.karaoke.adapter.CatalogueAdapter;
+import com.expelabs.karaoke.app.KaraokeApp;
 import com.expelabs.karaoke.data.SearchCallback;
 import com.expelabs.karaoke.data.TrackDao;
 import com.expelabs.karaoke.data.TrackEntry;
@@ -62,42 +63,45 @@ public class CatalogActivity extends Activity {
         natives.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(showFavs){
-                    showFavs=false;
+                if (showFavs) {
+                    showFavs = false;
                 }
                 curLoc = "ru";
                 natives.setTextColor(Color.parseColor("#f9e8b7"));
                 eng.setTextColor(Color.parseColor("#eaeaea"));
                 all.setTextColor(Color.parseColor("#eaeaea"));
                 favs.setTextColor(Color.parseColor("#eaeaea"));
+                menu.toggle();
                 doSearch(true, query);
             }
         });
         eng.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(showFavs){
-                    showFavs=false;
+                if (showFavs) {
+                    showFavs = false;
                 }
                 curLoc = "en";
                 eng.setTextColor(Color.parseColor("#f9e8b7"));
                 natives.setTextColor(Color.parseColor("#eaeaea"));
                 all.setTextColor(Color.parseColor("#eaeaea"));
                 favs.setTextColor(Color.parseColor("#eaeaea"));
+                menu.toggle();
                 doSearch(true, query);
             }
         });
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(showFavs){
-                    showFavs=false;
+                if (showFavs) {
+                    showFavs = false;
                 }
                 curLoc = "";
                 all.setTextColor(Color.parseColor("#f9e8b7"));
                 natives.setTextColor(Color.parseColor("#eaeaea"));
                 eng.setTextColor(Color.parseColor("#eaeaea"));
                 favs.setTextColor(Color.parseColor("#eaeaea"));
+                menu.toggle();
                 doSearch(true, query);
             }
         });
@@ -111,6 +115,7 @@ public class CatalogActivity extends Activity {
                 all.setTextColor(Color.parseColor("#eaeaea"));
                 adapter.addTracks(true, TrackDao.getFavouriteTracks());
                 showFavs = true;
+                menu.toggle();
             }
         });
         deleteQuery.setOnClickListener(new View.OnClickListener() {
@@ -131,13 +136,39 @@ public class CatalogActivity extends Activity {
         setListeners();
         adapter = new CatalogueAdapter(this);
         list.setAdapter(adapter);
+        boolean tutorial = getSharedPreferences(KaraokeApp.PREFERENCES_NAME,MODE_PRIVATE).getBoolean("tutorial",false);
+        if(!tutorial){
+            showTutorial();
+        }
+    }
+
+    private void showTutorial() {
+        menu.toggle();
+        getSharedPreferences(KaraokeApp.PREFERENCES_NAME,MODE_PRIVATE).edit().putBoolean("tutorial",true).commit();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Welcome to Karaoke catalog!\n You can sort track by name or author, filter with field in the top and add them to favorites by longtap.");
+        builder.setNegativeButton("Let's sing!",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.create().show();
+        menu.post(new Runnable() {
+            @Override
+            public void run() {
+                menu.toggle();
+            }
+        });
     }
 
     private void setListeners() {
         artistHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(showFavs){return;}
+                if (showFavs) {
+                    return;
+                }
                 artistHeader.setTextColor(Color.parseColor("#f9e8b7"));
                 nameHeader.setTextColor(Color.parseColor("#eaeaea"));
                 if (sortAuthor) {
@@ -152,7 +183,9 @@ public class CatalogActivity extends Activity {
         nameHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(showFavs){return;}
+                if (showFavs) {
+                    return;
+                }
                 nameHeader.setTextColor(Color.parseColor("#f9e8b7"));
                 artistHeader.setTextColor(Color.parseColor("#eaeaea"));
                 if (!sortAuthor) {
@@ -233,7 +266,9 @@ public class CatalogActivity extends Activity {
     }
 
     private void doSearch(final boolean clear, CharSequence query) {
-        if(showFavs){return;}
+        if (showFavs) {
+            return;
+        }
         searching = true;
         TrackDao.asyncSearch(currentPage, "where (author like '%" + query + "%' or name like '%" + query + "%' and loc like '%" + curLoc + "%') collate nocase ", current_sort, new SearchCallback() {
             @Override

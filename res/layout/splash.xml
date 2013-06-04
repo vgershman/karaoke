@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:custom="http://schemas.android.com/apk/res/com.expelabs.karaoke"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="@drawable/mic">
-    <ProgressBar android:layout_gravity="center"
-                 android:layout_height="30dp"
-                 android:layout_width="30dp"
-                 style="@android:style/Widget.ProgressBar.Large"
-                 android:id="@+id/loading"/>
+             android:background="@drawable/bg_main">
+
+    <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_gravity="center_horizontal"
+                                                  android:textSize="40sp"
+                                                  custom:customFont="MinionPro-Bold.otf"
+                                                  android:text="AST100"
+                                                  android:layout_marginTop="20dp"
+            />
+    <LinearLayout android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:layout_gravity="center"
+                  android:orientation="vertical">
+        <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
+                                                      android:layout_width="wrap_content"
+                                                      android:textSize="60sp"
+                                                      android:layout_gravity="center"
+                                                      custom:customFont="MinionPro-Bold.otf"
+                                                      android:text="Let's Sing"/>
+        <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
+                                                      android:layout_width="wrap_content"
+                                                      android:textSize="40sp"
+                                                      android:layout_gravity="center"
+                                                      custom:customFont="MinionPro-Bold.otf"
+                                                      android:text="Karaoke Catalogue"/>
+    </LinearLayout>
+    <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
+                                                  android:layout_width="wrap_content"
+                                                  android:layout_gravity="bottom|center_horizontal"
+                                                  android:textSize="40sp"
+                                                  custom:customFont="MinionPro-Bold.otf"
+                                                  android:text="May"
+                                                  android:layout_marginBottom="20dp"/>
 </FrameLayout>
