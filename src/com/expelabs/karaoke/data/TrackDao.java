@@ -148,6 +148,7 @@ public class TrackDao {
         return preResult;
     }
 
+
     public static void asyncSearch(Integer pageCount, String query, String sort, SearchCallback callback) {
         if (current != null) {
             current.cancel(true);

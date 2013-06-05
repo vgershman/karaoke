@@ -12,7 +12,7 @@
                                                   android:textSize="40sp"
                                                   custom:customFont="MinionPro-Bold.otf"
                                                   android:text="AST100"
-                                                  android:layout_marginTop="20dp"
+                                                  android:layout_marginTop="10dp"
             />
     <LinearLayout android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
@@ -21,12 +21,14 @@
         <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
                                                       android:layout_width="wrap_content"
                                                       android:textSize="60sp"
+                                                      android:textColor="#f9e8b7"
                                                       android:layout_gravity="center"
                                                       custom:customFont="MinionPro-Bold.otf"
                                                       android:text="Let's Sing"/>
         <com.expelabs.karaoke.view.CustomFontTextView android:layout_height="wrap_content"
                                                       android:layout_width="wrap_content"
                                                       android:textSize="40sp"
+                                                      android:textColor="#f9e8b7"
                                                       android:layout_gravity="center"
                                                       custom:customFont="MinionPro-Bold.otf"
                                                       android:text="Karaoke Catalogue"/>
@@ -37,5 +39,5 @@
                                                   android:textSize="40sp"
                                                   custom:customFont="MinionPro-Bold.otf"
                                                   android:text="May"
-                                                  android:layout_marginBottom="20dp"/>
+                                                  android:layout_marginBottom="10dp"/>
 </FrameLayout>

@@ -3,6 +3,7 @@ package com.expelabs.karaoke.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +17,8 @@ import com.expelabs.karaoke.app.KaraokeApp;
 import com.expelabs.karaoke.data.SearchCallback;
 import com.expelabs.karaoke.data.TrackDao;
 import com.expelabs.karaoke.data.TrackEntry;
+import com.expelabs.karaoke.util.BillingUtils;
+import com.expelabs.karaoke.util.PurchaseDelegate;
 import com.slidingmenu.lib.SlidingMenu;
 
 import java.util.List;
@@ -26,7 +29,7 @@ public class CatalogActivity extends Activity {
     private EditText search;
     private boolean sortAuthor = true;
     private boolean sortAsc;
-    private String current_sort = "";
+    private String current_sort = "order by author asc";
     private String query = "";
     private TextView artistHeader;
     private TextView nameHeader;
@@ -113,7 +116,11 @@ public class CatalogActivity extends Activity {
                 natives.setTextColor(Color.parseColor("#eaeaea"));
                 eng.setTextColor(Color.parseColor("#eaeaea"));
                 all.setTextColor(Color.parseColor("#eaeaea"));
-                adapter.addTracks(true, TrackDao.getFavouriteTracks());
+                List<TrackEntry>favs = TrackDao.getFavouriteTracks();
+                if(!(favs.size() > 0)){
+                    Toast.makeText(CatalogActivity.this,"Нет избранных. Чтобы добавить - долго жмите на трек",Toast.LENGTH_LONG).show();
+                }
+                adapter.addTracks(true, favs);
                 showFavs = true;
                 menu.toggle();
             }
@@ -136,18 +143,18 @@ public class CatalogActivity extends Activity {
         setListeners();
         adapter = new CatalogueAdapter(this);
         list.setAdapter(adapter);
-        boolean tutorial = getSharedPreferences(KaraokeApp.PREFERENCES_NAME,MODE_PRIVATE).getBoolean("tutorial",false);
-        if(!tutorial){
+        boolean tutorial = getSharedPreferences(KaraokeApp.PREFERENCES_NAME, MODE_PRIVATE).getBoolean("tutorial", false);
+        if (!tutorial) {
             showTutorial();
         }
     }
 
     private void showTutorial() {
         menu.toggle();
-        getSharedPreferences(KaraokeApp.PREFERENCES_NAME,MODE_PRIVATE).edit().putBoolean("tutorial",true).commit();
+        getSharedPreferences(KaraokeApp.PREFERENCES_NAME, MODE_PRIVATE).edit().putBoolean("tutorial", true).commit();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Welcome to Karaoke catalog!\n You can sort track by name or author, filter with field in the top and add them to favorites by longtap.");
-        builder.setNegativeButton("Let's sing!",new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Let's sing!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -203,15 +210,35 @@ public class CatalogActivity extends Activity {
                 final TrackEntry trackEntry = adapter.getItem((int) l);
                 final boolean isFavourite = TrackDao.isFavourite(trackEntry);
                 AlertDialog.Builder builder = new AlertDialog.Builder(CatalogActivity.this);
-                builder.setMessage(isFavourite ? "Удалить из избранных" : "Добавить в избранные?");
-                builder.setPositiveButton(isFavourite ? "Удалить" : "Добавить", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i2) {
-                        TrackDao.setFavourite(trackEntry, !isFavourite);
-                        dialogInterface.dismiss();
-                        doSearch(true, query);
-                    }
-                });
+                if (!KaraokeApp.isPro() && !isFavourite && TrackDao.getFavouriteTracks().size() > 1) {
+                    builder.setMessage("В бесплатной версии можно добавить только 2 записи в избранное, хотите купить платную?");
+                    builder.setPositiveButton("Купить", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            KaraokeApp.getBillingUtils().buy(KaraokeApp.SKU_FAVS, CatalogActivity.this, new PurchaseDelegate() {
+                                @Override
+                                public void onSuccess() {
+                                    Toast.makeText(CatalogActivity.this, "Спасибо за покупку! Можете добавлять в избранное!", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    builder.setMessage(isFavourite ? "Удалить из избранных" : "Добавить в избранные?");
+                    builder.setPositiveButton(isFavourite ? "Удалить" : "Добавить", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i2) {
+                            TrackDao.setFavourite(trackEntry, !isFavourite);
+                            dialogInterface.dismiss();
+                            doSearch(true, query);
+                            if(showFavs){
+                                adapter.addTracks(true, TrackDao.getFavouriteTracks());
+                                adapter.notifyDataSetChanged();
+                            }
+
+                        }
+                    });
+                }
                 builder.setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -301,5 +328,13 @@ public class CatalogActivity extends Activity {
         }
         currentPage = 1;
         doSearch(true, query);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == BillingUtils.RC_BUY) {
+            KaraokeApp.getBillingUtils().handleActivityResult(requestCode, resultCode, data);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

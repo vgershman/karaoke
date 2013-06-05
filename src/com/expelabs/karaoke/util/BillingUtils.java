@@ -12,11 +12,6 @@ import com.billing.IabResult;
 import com.billing.Inventory;
 import com.billing.Purchase;
 import com.expelabs.karaoke.app.KaraokeApp;
-import com.expelabs.tips.activity.AdditionalSettingsActivity;
-import com.expelabs.tips.app.DailyTipsApp;
-import com.expelabs.tips.delegate.PurchaseDelegate;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -59,36 +54,12 @@ public class BillingUtils {
                 public void onQueryInventoryFinished(IabResult result,
                                                      Inventory inventory) {
                     if (!result.isFailure()) {
-                        SharedPreferences sharedPreferences = context.getSharedPreferences(KaraokeApp.PREFERENCES_NAME,Context.MODE_PRIVATE);
-                        boolean total = false;
-                        boolean cooking = false;
-                        boolean home = false;
-                        boolean work = false;
-                        boolean life = false;
-
-                        if(inventory.hasPurchase(DailyTipsApp.SKU_TOTAL)){
-                            total = true;
-
+                        SharedPreferences sharedPreferences = context.getSharedPreferences(KaraokeApp.PREFERENCES_NAME, Context.MODE_PRIVATE);
+                        if (inventory.hasPurchase(KaraokeApp.SKU_FAVS)) {
+                            sharedPreferences.edit().putBoolean(KaraokeApp.SKU_FAVS, true).commit();
+                        }else{
+                            sharedPreferences.edit().putBoolean(KaraokeApp.SKU_FAVS, false).commit();
                         }
-                        if(inventory.hasPurchase(DailyTipsApp.SKU_HOME)){
-                            home = true;
-                        }
-                        if(inventory.hasPurchase(DailyTipsApp.SKU_COOKING)){
-                            cooking = true;
-                        }
-                        if(inventory.hasPurchase(DailyTipsApp.SKU_LIFESTYLE)){
-                            life = true;
-                        }
-                        if(inventory.hasPurchase(DailyTipsApp.SKU_WORK)){
-                            work = true;
-                        }
-                        sharedPreferences.edit()
-                                .putBoolean(DailyTipsApp.SKU_TOTAL,total)
-                                .putBoolean(DailyTipsApp.SKU_COOKING,cooking)
-                                .putBoolean(DailyTipsApp.SKU_HOME,home)
-                                .putBoolean(DailyTipsApp.SKU_WORK,work)
-                                .putBoolean(DailyTipsApp.SKU_LIFESTYLE,life)
-                                .commit();
                     }
                 }
             };
@@ -105,7 +76,7 @@ public class BillingUtils {
                     if (result.isFailure()) {
                         return;
                     } else {
-                        context.getSharedPreferences(DailyTipsApp.PREFERENCES_NAME,Context.MODE_PRIVATE).edit().putBoolean(purchase.getSku(),true).commit();
+                        context.getSharedPreferences(KaraokeApp.PREFERENCES_NAME, Context.MODE_PRIVATE).edit().putBoolean(purchase.getSku(), true).commit();
                         purchaseDelegate.onSuccess();
                     }
                 }
@@ -113,7 +84,7 @@ public class BillingUtils {
             try {
                 mHelper.launchPurchaseFlow(activity, sku, RC_BUY, mPurchaseFinishedListener, "");
             } catch (IllegalStateException e) {
-                Log.e(DailyTipsApp.class.getName(), e.getMessage());
+                Log.e(KaraokeApp.class.getName(), e.getMessage());
             }
         } else {
             Toast toast = Toast.makeText(activity, "Oh no! Something went wrong, can't make purchase.", 1000);
@@ -122,7 +93,7 @@ public class BillingUtils {
         }
     }
 
-    public void dispose(){
+    public void dispose() {
         mHelper.dispose();
     }
 
