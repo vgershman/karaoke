@@ -52,8 +52,24 @@ public class ImportTask extends AsyncTask {
                 i++;
                 Log.i("karaoke", i + "");
             }
-            TrackDao.close();
             reader.close();
+            CSVReader reader1 = new CSVReader(new BufferedReader(new InputStreamReader(context.getAssets().open("en.csv"))));
+            String[] nextLine1;
+            int i1 = 0;
+            while ((nextLine1 = reader1.readNext()) != null) {
+                TrackEntry trackEntry = new TrackEntry();
+                trackEntry.setAuthor(nextLine1[0]);
+                trackEntry.setName(nextLine1[1]);
+                trackEntry.setMidi(nextLine1[2].replace("?", "d"));
+                trackEntry.setMp3(nextLine1[3].replace("?", "d"));
+                trackEntry.setLocale("en");
+                TrackDao.insert(trackEntry);
+                i++;
+                Log.i("karaoke", i1 + "");
+            }
+            TrackDao.close();
+            reader1.close();
+
         } catch (Exception ex) {
             fail = true;
         }

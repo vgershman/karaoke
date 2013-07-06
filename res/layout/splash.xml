@@ -11,7 +11,7 @@
                                                   android:layout_gravity="center_horizontal"
                                                   android:textSize="40sp"
                                                   custom:customFont="MinionPro-Bold.otf"
-                                                  android:text="AST100"
+                                                  android:text="EVOLUTION"
                                                   android:layout_marginTop="10dp"
             />
     <LinearLayout android:layout_height="wrap_content"
@@ -38,6 +38,6 @@
                                                   android:layout_gravity="bottom|center_horizontal"
                                                   android:textSize="40sp"
                                                   custom:customFont="MinionPro-Bold.otf"
-                                                  android:text="May"
+                                                  android:text="JULY"
                                                   android:layout_marginBottom="10dp"/>
 </FrameLayout>
